@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0E7FEF1F2512180026FDEA /* StackMachineInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FEE1F2512180026FDEA /* StackMachineInterpreter.swift */; };
+		4E0E7FF11F25128C0026FDEA /* StackMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FF01F25128C0026FDEA /* StackMachineError.swift */; };
+		4E0E7FF31F2512BB0026FDEA /* StackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FF21F2512BB0026FDEA /* StackCell.swift */; };
+		4E0E7FF51F257E100026FDEA /* StackMachineStandardIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FF41F257E100026FDEA /* StackMachineStandardIO.swift */; };
+		4E0E7FF71F257E6C0026FDEA /* StackMachineStreamIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FF61F257E6C0026FDEA /* StackMachineStreamIO.swift */; };
+		4E0E801F1F25879B0026FDEA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E801E1F25879B0026FDEA /* main.swift */; };
+		4E0E80241F2587E30026FDEA /* StackMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71F6401F24E8CB00AA1F41 /* StackMachine.swift */; };
+		4E0E80251F2587E30026FDEA /* StackMachineError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FF01F25128C0026FDEA /* StackMachineError.swift */; };
+		4E0E80261F2587E30026FDEA /* StackMachineInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FEE1F2512180026FDEA /* StackMachineInterpreter.swift */; };
+		4E0E80271F2587E30026FDEA /* StackMachineStandardIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FF41F257E100026FDEA /* StackMachineStandardIO.swift */; };
+		4E0E80281F2587E30026FDEA /* StackMachineStreamIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FF61F257E6C0026FDEA /* StackMachineStreamIO.swift */; };
+		4E0E80291F258A2B0026FDEA /* StackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FF21F2512BB0026FDEA /* StackCell.swift */; };
 		4E71F6301F24E8AD00AA1F41 /* StackMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E71F6261F24E8AD00AA1F41 /* StackMachine.framework */; };
 		4E71F6351F24E8AD00AA1F41 /* StackMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71F6341F24E8AD00AA1F41 /* StackMachineTests.swift */; };
 		4E71F6371F24E8AD00AA1F41 /* StackMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E71F6291F24E8AD00AA1F41 /* StackMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4E71F6411F24E8CB00AA1F41 /* StackMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71F6401F24E8CB00AA1F41 /* StackMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,16 +35,43 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4E0E801A1F25879B0026FDEA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4E0E7FEE1F2512180026FDEA /* StackMachineInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackMachineInterpreter.swift; sourceTree = "<group>"; };
+		4E0E7FF01F25128C0026FDEA /* StackMachineError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackMachineError.swift; sourceTree = "<group>"; };
+		4E0E7FF21F2512BB0026FDEA /* StackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackCell.swift; sourceTree = "<group>"; };
+		4E0E7FF41F257E100026FDEA /* StackMachineStandardIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackMachineStandardIO.swift; sourceTree = "<group>"; };
+		4E0E7FF61F257E6C0026FDEA /* StackMachineStreamIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackMachineStreamIO.swift; sourceTree = "<group>"; };
+		4E0E801C1F25879B0026FDEA /* sm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sm; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E0E801E1F25879B0026FDEA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4E71F6261F24E8AD00AA1F41 /* StackMachine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StackMachine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E71F6291F24E8AD00AA1F41 /* StackMachine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackMachine.h; sourceTree = "<group>"; };
 		4E71F62A1F24E8AD00AA1F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E71F62F1F24E8AD00AA1F41 /* StackMachineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackMachineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E71F6341F24E8AD00AA1F41 /* StackMachineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackMachineTests.swift; sourceTree = "<group>"; };
 		4E71F6361F24E8AD00AA1F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E71F6401F24E8CB00AA1F41 /* StackMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4E0E80191F25879B0026FDEA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4E71F6221F24E8AD00AA1F41 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,11 +90,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E0E801D1F25879B0026FDEA /* sm */ = {
+			isa = PBXGroup;
+			children = (
+				4E0E801E1F25879B0026FDEA /* main.swift */,
+			);
+			path = sm;
+			sourceTree = "<group>";
+		};
 		4E71F61C1F24E8AD00AA1F41 = {
 			isa = PBXGroup;
 			children = (
 				4E71F6281F24E8AD00AA1F41 /* StackMachine */,
 				4E71F6331F24E8AD00AA1F41 /* StackMachineTests */,
+				4E0E801D1F25879B0026FDEA /* sm */,
 				4E71F6271F24E8AD00AA1F41 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +113,7 @@
 			children = (
 				4E71F6261F24E8AD00AA1F41 /* StackMachine.framework */,
 				4E71F62F1F24E8AD00AA1F41 /* StackMachineTests.xctest */,
+				4E0E801C1F25879B0026FDEA /* sm */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -71,8 +121,14 @@
 		4E71F6281F24E8AD00AA1F41 /* StackMachine */ = {
 			isa = PBXGroup;
 			children = (
-				4E71F6291F24E8AD00AA1F41 /* StackMachine.h */,
 				4E71F62A1F24E8AD00AA1F41 /* Info.plist */,
+				4E0E7FF21F2512BB0026FDEA /* StackCell.swift */,
+				4E71F6291F24E8AD00AA1F41 /* StackMachine.h */,
+				4E71F6401F24E8CB00AA1F41 /* StackMachine.swift */,
+				4E0E7FF01F25128C0026FDEA /* StackMachineError.swift */,
+				4E0E7FEE1F2512180026FDEA /* StackMachineInterpreter.swift */,
+				4E0E7FF41F257E100026FDEA /* StackMachineStandardIO.swift */,
+				4E0E7FF61F257E6C0026FDEA /* StackMachineStreamIO.swift */,
 			);
 			path = StackMachine;
 			sourceTree = "<group>";
@@ -100,6 +156,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		4E0E801B1F25879B0026FDEA /* sm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E0E80201F25879B0026FDEA /* Build configuration list for PBXNativeTarget "sm" */;
+			buildPhases = (
+				4E0E80181F25879B0026FDEA /* Sources */,
+				4E0E80191F25879B0026FDEA /* Frameworks */,
+				4E0E801A1F25879B0026FDEA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sm;
+			productName = sm;
+			productReference = 4E0E801C1F25879B0026FDEA /* sm */;
+			productType = "com.apple.product-type.tool";
+		};
 		4E71F6251F24E8AD00AA1F41 /* StackMachine */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E71F63A1F24E8AD00AA1F41 /* Build configuration list for PBXNativeTarget "StackMachine" */;
@@ -146,9 +219,15 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Kristopher Johnson";
 				TargetAttributes = {
+					4E0E801B1F25879B0026FDEA = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = D5E423632K;
+						ProvisioningStyle = Automatic;
+					};
 					4E71F6251F24E8AD00AA1F41 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = D5E423632K;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					4E71F62E1F24E8AD00AA1F41 = {
@@ -172,6 +251,7 @@
 			targets = (
 				4E71F6251F24E8AD00AA1F41 /* StackMachine */,
 				4E71F62E1F24E8AD00AA1F41 /* StackMachineTests */,
+				4E0E801B1F25879B0026FDEA /* sm */,
 			);
 		};
 /* End PBXProject section */
@@ -194,10 +274,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4E0E80181F25879B0026FDEA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E0E80281F2587E30026FDEA /* StackMachineStreamIO.swift in Sources */,
+				4E0E80241F2587E30026FDEA /* StackMachine.swift in Sources */,
+				4E0E801F1F25879B0026FDEA /* main.swift in Sources */,
+				4E0E80261F2587E30026FDEA /* StackMachineInterpreter.swift in Sources */,
+				4E0E80251F2587E30026FDEA /* StackMachineError.swift in Sources */,
+				4E0E80271F2587E30026FDEA /* StackMachineStandardIO.swift in Sources */,
+				4E0E80291F258A2B0026FDEA /* StackCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4E71F6211F24E8AD00AA1F41 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E0E7FF31F2512BB0026FDEA /* StackCell.swift in Sources */,
+				4E71F6411F24E8CB00AA1F41 /* StackMachine.swift in Sources */,
+				4E0E7FF71F257E6C0026FDEA /* StackMachineStreamIO.swift in Sources */,
+				4E0E7FF11F25128C0026FDEA /* StackMachineError.swift in Sources */,
+				4E0E7FF51F257E100026FDEA /* StackMachineStandardIO.swift in Sources */,
+				4E0E7FEF1F2512180026FDEA /* StackMachineInterpreter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +320,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		4E0E80211F25879B0026FDEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = D5E423632K;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4E0E80221F25879B0026FDEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = D5E423632K;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		4E71F6381F24E8AD00AA1F41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -321,6 +439,7 @@
 		4E71F63B1F24E8AD00AA1F41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -335,6 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.kristopherjohnson.StackMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -342,6 +462,7 @@
 		4E71F63C1F24E8AD00AA1F41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -363,6 +484,7 @@
 		4E71F63E1F24E8AD00AA1F41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = D5E423632K;
 				INFOPLIST_FILE = StackMachineTests/Info.plist;
@@ -376,6 +498,7 @@
 		4E71F63F1F24E8AD00AA1F41 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = D5E423632K;
 				INFOPLIST_FILE = StackMachineTests/Info.plist;
@@ -389,6 +512,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4E0E80201F25879B0026FDEA /* Build configuration list for PBXNativeTarget "sm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E0E80211F25879B0026FDEA /* Debug */,
+				4E0E80221F25879B0026FDEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4E71F6201F24E8AD00AA1F41 /* Build configuration list for PBXProject "StackMachine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -405,6 +536,7 @@
 				4E71F63C1F24E8AD00AA1F41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E71F63D1F24E8AD00AA1F41 /* Build configuration list for PBXNativeTarget "StackMachineTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +545,7 @@
 				4E71F63F1F24E8AD00AA1F41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
