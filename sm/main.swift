@@ -7,6 +7,10 @@
 //
 
 do {
+    print("sm, Copyright 2017 Kristopher Johnson")
+    print("Type \"words\" for list of available words.")
+    print("Type \"bye\" to exit.")
+
     let sm = StackMachineInterpreter()
     try sm.quit()
 }

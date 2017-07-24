@@ -28,6 +28,21 @@ public enum StackCell {
     static let EmptyString = StackCell.string("")
 }
 
+extension StackCell: Equatable {
+    public static func == (lhs: StackCell, rhs: StackCell) -> Bool {
+        switch (lhs, rhs) {
+        case let (.int(a), .int(b)):
+            return a == b
+        case let (.string(a), .string(b)):
+            return a == b
+        case let (.address(a), .address(b)):
+            return a == b
+        default:
+            return false
+        }
+    }
+}
+
 extension StackCell: CustomStringConvertible {
     public var description: String {
         switch self {

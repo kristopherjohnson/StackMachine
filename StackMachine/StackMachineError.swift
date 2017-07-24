@@ -21,6 +21,7 @@ public enum StackMachineError: Error {
     case xtRequired(String)
     case addressRequired(String)
     case undefinedWord(String)
+    case bye
 }
 
 extension StackMachineError: LocalizedError {
@@ -40,6 +41,8 @@ extension StackMachineError: LocalizedError {
             return "address required: \(detail)"
         case .undefinedWord(let detail):
             return "undefined word: \(detail)"
+        case .bye:
+            return "\"bye\" was executed"
         }
     }
 }

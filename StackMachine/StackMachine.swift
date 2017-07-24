@@ -19,6 +19,14 @@ open class StackMachine {
     var returnStackTop: Int
     let returnStackLimit: Int
 
+    /// Get copy of current stack contents.
+    ///
+    /// Elements are ordered from bottom to top.
+    public var elements: Array<StackCell> {
+        return Array(stack[0..<(stackTop + 1)])
+    }
+
+    /// Constructor.
     public init() {
         stackTop = -1
         stackLimit = 128
@@ -27,6 +35,12 @@ open class StackMachine {
         returnStackTop = -1
         returnStackLimit = 128
         returnStack = Array(repeating: .int(0), count: returnStackLimit)
+    }
+
+    /// Set stacks to be empty.
+    public func reset() {
+        stackTop = -1
+        returnStackTop = -1
     }
 
     // MARK:- Stack operations
@@ -129,12 +143,30 @@ open class StackMachine {
         stack[stackTop] = stack[stackTop - 2]
     }
 
+    public func pick() throws {
+        if stackTop < 0 {
+            throw StackMachineError.stackUnderflow("pick")
+        }
+        let x = try top()
+        switch x {
+        case .int(let n):
+            let index = stackTop - n
+            if index < 0 {
+                throw StackMachineError.stackUnderflow("pick")
+            }
+            try replaceTop(stack[index])
+        default:
+            throw StackMachineError.intRequired("pick")
+        }
+    }
+
     /// Get the number of elements on the stack.
     ///
     /// ( -- n )
     public func depth() throws {
         try push(.int(stackTop + 1))
     }
+
     /// Add the two integers at the top of the stack, leaving the result.
     ///
     /// ( n1 n2 -- n3 )
