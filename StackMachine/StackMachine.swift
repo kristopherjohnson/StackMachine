@@ -63,6 +63,9 @@ open class StackMachine {
     ///
     /// ( -- )
     public func top() throws -> StackCell {
+        if stackTop < 0 {
+            throw StackMachineError.stackUnderflow("top")
+        }
         return stack[stackTop]
     }
 
@@ -217,6 +220,9 @@ open class StackMachine {
         let x1 = try top()
         switch (x1, x2) {
         case let (.int(n1), .int(n2)):
+            if n2 == 0 {
+                throw StackMachineError.divideByZero("/")
+            }
             try replaceTop(.int(n1 / n2))
         default:
             throw StackMachineError.intRequired("/")

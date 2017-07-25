@@ -44,25 +44,65 @@ open class StackMachineInterpreter
         }
     }
 
-    /// Make the given string the input buffer and interpret it.
+    /// Move the given string into the input buffer and interpret it.
     ///
     /// ( i*x s -- j*x )
     public func interpret(_ text: String) throws {
         inputBuffer = text.utf8
         inputIndex = inputBuffer.startIndex
+        try interpretInputBuffer()
+    }
 
+    /// Interpret the contents of the input buffer.
+    ///
+    /// ( i*x s -- j*x )
+    public func interpretInputBuffer() throws {
         while inputIndex != inputBuffer.endIndex {
             if let token = try readWord() {
-                // TODO: Check for int, string, double
-                try executeWord(token)
+                if let n = toInt(token) {
+                    try sm.push(.int(n))
+                }
+                else {
+                    try executeWord(token)
+                }
             }
         }
+    }
+
+    /// If string is numeric, return integer value.
+    ///
+    /// - returns: `Int` if `s` is an integer string, or `nil` if not.
+    public func toInt(_ s: String) -> Int? {
+        if isIntLiteral(s) {
+            return Int(s)
+        }
+        else {
+            return nil
+        }
+    }
+
+    /// Determine whether given string is a valid integer literal.
+    ///
+    /// - todo: Support non-decimal bases
+    public func isIntLiteral(_ s: String) -> Bool {
+        let utf8 = s.utf8
+        if utf8.count < 1 {
+            return false
+        }
+
+        var range = utf8.startIndex..<utf8.endIndex
+        if utf8.first == Ascii.minus {
+            let second = utf8.index(after: utf8.startIndex)
+            range = second..<utf8.endIndex
+        }
+
+        return !utf8[range].contains { !isDigit($0) }
     }
 
     /// Read the next word from the input buffer.
     ///
     /// - parameter delimiter: Delimiting character
-    public func readWord(delimiter: UInt8 = 0x20) throws -> String? {
+    public func readWord(delimiter: UInt8 = Ascii.space) throws -> String? {
         let limit = inputBuffer.endIndex
 
         // Skip initial delimiter characters.
@@ -199,10 +239,10 @@ open class StackMachineInterpreter
     ///
     /// ( -- n )
     public func bl() throws {
-        try sm.push(.int(0x20))
+        try sm.push(.int(Int(Ascii.space)))
     }
 
-    /// Send carriage-return to standard output.
+    /// Send end-of-line to output.
     ///
     /// ( -- )
     public func cr() throws {

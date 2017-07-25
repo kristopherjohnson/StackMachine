@@ -16,6 +16,7 @@ import Foundation
 public enum StackMachineError: Error {
     case stackUnderflow(String)
     case stackOverflow(String)
+    case divideByZero(String)
     case intRequired(String)
     case stringRequired(String)
     case xtRequired(String)
@@ -31,6 +32,8 @@ extension StackMachineError: LocalizedError {
             return "stack underflow: \(detail)"
         case .stackOverflow(let detail):
             return "stack overflow: \(detail)"
+        case .divideByZero(let detail):
+            return "divide by zero: \(detail)"
         case .intRequired(let detail):
             return "integer required: \(detail)"
         case .stringRequired(let detail):
