@@ -8,6 +8,18 @@
 
 import Foundation
 
+class DictionaryEntry {
+    let name: String
+    let xt: Xt
+    let isImmediate: Bool
+
+    init(name: String, xt: @escaping Xt, isImmediate: Bool) {
+        self.name = name
+        self.xt = xt
+        self.isImmediate = isImmediate
+    }
+}
+
 /// A StackMachineInterpreter is a Forth-like language
 /// interpreter that operates on a StackMachine.
 open class StackMachineInterpreter
@@ -16,7 +28,7 @@ open class StackMachineInterpreter
     let sm: StackMachine
 
     /// Word definitions.
-    var dictionary: [String:Xt]
+    var dictionary: [String:DictionaryEntry]
 
     /// Delegate that provides I/O
     weak var io: StackMachineStreamIO?
@@ -128,12 +140,16 @@ open class StackMachineInterpreter
 
     // MARK:- Word definitions
 
-    public func definePrimitive(_ name: String, _ op: @escaping Xt) {
-        dictionary[name.lowercased()] = op
+    public func definePrimitive(_ name: String, _ xt: @escaping Xt) {
+        dictionary[name.lowercased()]
+            = DictionaryEntry(name: name, xt: xt, isImmediate: false)
     }
 
     public func findWord(_ name: String) -> Xt? {
-        return self.dictionary[name.lowercased()]
+        if let entry = self.dictionary[name.lowercased()] {
+            return entry.xt
+        }
+        return nil
     }
 
     public func executeWord(_ name: String) throws {
