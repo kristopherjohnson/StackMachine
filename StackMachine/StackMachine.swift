@@ -11,36 +11,29 @@ import Foundation
 /// A StackMachine is a representation of a simple computer
 /// with a data stack and a return stack.
 open class StackMachine {
-    var stack: [StackCell]
-    var stackTop: Int
-    let stackLimit: Int
+    /// Data stack.
+    var stack: Stack
 
-    var returnStack: [StackCell]
-    var returnStackTop: Int
-    let returnStackLimit: Int
+    /// Return stack.
+    var rstack: Stack
 
     /// Get copy of current stack contents.
     ///
     /// Elements are ordered from bottom to top.
     public var elements: Array<StackCell> {
-        return Array(stack[0..<(stackTop + 1)])
+        return stack.elements
     }
 
     /// Constructor.
     public init() {
-        stackTop = -1
-        stackLimit = 128
-        stack = Array(repeating: .int(0), count: stackLimit)
-
-        returnStackTop = -1
-        returnStackLimit = 128
-        returnStack = Array(repeating: .int(0), count: returnStackLimit)
+        stack = Stack()
+        rstack = Stack()
     }
 
     /// Set stacks to be empty.
     public func reset() {
-        stackTop = -1
-        returnStackTop = -1
+        stack.reset()
+        rstack.reset()
     }
 
     // MARK:- Stack operations
@@ -49,125 +42,67 @@ open class StackMachine {
     ///
     /// ( -- x )
     public func push(_ x: StackCell) throws {
-        stackTop += 1
-        if stackTop < stackLimit {
-            stack[stackTop] = x
-        }
-        else {
-            throw StackMachineError.stackOverflow(
-                "push: \(x)")
-        }
+        try stack.push(x)
     }
 
     /// Return the cell at the top of the stack.
     ///
     /// ( -- )
     public func top() throws -> StackCell {
-        if stackTop < 0 {
-            throw StackMachineError.stackUnderflow("top")
-        }
-        return stack[stackTop]
+        return try stack.top()
     }
 
     /// Remove the value at the top of the stack.
     ///
     /// ( x -- )
     public func drop() throws {
-        if stackTop >= 0 {
-            stackTop -= 1
-        }
-        else {
-            throw StackMachineError.stackUnderflow("drop")
-        }
+        try stack.drop()
     }
 
     /// Remove the value at the top of the stack, and return it.
     ///
     /// ( x -- )
     public func pop() throws -> StackCell {
-        if stackTop >= 0 {
-            let cell = stack[stackTop]
-            stackTop -= 1
-            return cell
-        }
-        else {
-            throw StackMachineError.stackUnderflow("pop")
-        }
+        return try stack.pop()
     }
 
     /// Overwrite the value at the top of the stack.
     ///
     /// ( x1 -- x2 )
     public func replaceTop(_ x: StackCell) throws {
-        if stackTop >= 0 {
-            stack[stackTop] = x
-        }
-        else {
-            throw StackMachineError.stackUnderflow(
-                "replaceTop: \(x)")
-        }
+        try stack.replaceTop(x)
     }
 
     /// Duplicate the value at the top of the stack.
     ///
     /// ( x1 -- x1 x1 )
     public func dup() throws {
-        if stackTop < 0 {
-            throw StackMachineError.stackUnderflow("dup")
-        }
-        stackTop += 1
-        if stackTop >= stackLimit {
-            throw StackMachineError.stackOverflow("dup")
-        }
-        stack[stackTop] = stack[stackTop - 1]
+        try stack.dup()
     }
 
     /// Swap the values at the top of the stack.
     ///
     /// ( x1 x2 -- x2 x1 )
     public func swap() throws {
-        if stackTop < 1 {
-            throw StackMachineError.stackUnderflow("swap")
-        }
-        Swift.swap(&stack[stackTop], &stack[stackTop - 1])
+        try stack.swap()
     }
 
     /// Make a copy of the cell beneath the top-of-stack.
     ///
     /// ( x1 x2 -- x1 x2 x1 }
     public func over() throws {
-        if stackTop < 1 {
-            throw StackMachineError.stackUnderflow("over")
-        }
-        stackTop += 1
-        if stackTop >= stackLimit {
-            throw StackMachineError.stackOverflow("over")
-        }
-        stack[stackTop] = stack[stackTop - 2]
+        try stack.over()
     }
 
     public func pick() throws {
-        if stackTop < 0 {
-            throw StackMachineError.stackUnderflow("pick")
-        }
-        let x = try top()
-        switch x {
-        case .int(let n):
-            let index = stackTop - n
-            if index < 0 {
-                throw StackMachineError.stackUnderflow("pick")
-            }
-            try replaceTop(stack[index])
-        default:
-            throw StackMachineError.intRequired("pick")
-        }
+        try stack.pick()
     }
 
     /// Get the number of elements on the stack.
     ///
     /// ( -- n )
     public func depth() throws {
-        try push(.int(stackTop + 1))
+        try stack.depth()
     }
 
     /// Add the two integers at the top of the stack, leaving the result.
@@ -259,4 +194,3 @@ open class StackMachine {
         }
     }
 }
-

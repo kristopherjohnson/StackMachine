@@ -21,6 +21,8 @@
 		4E0E80291F258A2B0026FDEA /* StackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0E7FF21F2512BB0026FDEA /* StackCell.swift */; };
 		4E60F39B1F26C3AB00DBEAD5 /* CharacterUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60F39A1F26C3AB00DBEAD5 /* CharacterUtilities.swift */; };
 		4E60F39C1F26C3BC00DBEAD5 /* CharacterUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60F39A1F26C3AB00DBEAD5 /* CharacterUtilities.swift */; };
+		4E60F39E1F2829E700DBEAD5 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60F39D1F2829E700DBEAD5 /* Stack.swift */; };
+		4E60F39F1F2829E700DBEAD5 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E60F39D1F2829E700DBEAD5 /* Stack.swift */; };
 		4E71F6301F24E8AD00AA1F41 /* StackMachine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E71F6261F24E8AD00AA1F41 /* StackMachine.framework */; };
 		4E71F6351F24E8AD00AA1F41 /* StackMachineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E71F6341F24E8AD00AA1F41 /* StackMachineTests.swift */; };
 		4E71F6371F24E8AD00AA1F41 /* StackMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E71F6291F24E8AD00AA1F41 /* StackMachine.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,6 +60,7 @@
 		4E0E801C1F25879B0026FDEA /* sm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sm; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0E801E1F25879B0026FDEA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4E60F39A1F26C3AB00DBEAD5 /* CharacterUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterUtilities.swift; sourceTree = "<group>"; };
+		4E60F39D1F2829E700DBEAD5 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		4E71F6261F24E8AD00AA1F41 /* StackMachine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StackMachine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E71F6291F24E8AD00AA1F41 /* StackMachine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackMachine.h; sourceTree = "<group>"; };
 		4E71F62A1F24E8AD00AA1F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 			children = (
 				4E60F39A1F26C3AB00DBEAD5 /* CharacterUtilities.swift */,
 				4E71F62A1F24E8AD00AA1F41 /* Info.plist */,
+				4E60F39D1F2829E700DBEAD5 /* Stack.swift */,
 				4E0E7FF21F2512BB0026FDEA /* StackCell.swift */,
 				4E71F6291F24E8AD00AA1F41 /* StackMachine.h */,
 				4E71F6401F24E8CB00AA1F41 /* StackMachine.swift */,
@@ -283,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E0E80281F2587E30026FDEA /* StackMachineStreamIO.swift in Sources */,
+				4E60F39F1F2829E700DBEAD5 /* Stack.swift in Sources */,
 				4E0E80241F2587E30026FDEA /* StackMachine.swift in Sources */,
 				4E0E801F1F25879B0026FDEA /* main.swift in Sources */,
 				4E0E80261F2587E30026FDEA /* StackMachineInterpreter.swift in Sources */,
@@ -301,6 +306,7 @@
 				4E71F6411F24E8CB00AA1F41 /* StackMachine.swift in Sources */,
 				4E60F39B1F26C3AB00DBEAD5 /* CharacterUtilities.swift in Sources */,
 				4E0E7FF71F257E6C0026FDEA /* StackMachineStreamIO.swift in Sources */,
+				4E60F39E1F2829E700DBEAD5 /* Stack.swift in Sources */,
 				4E0E7FF11F25128C0026FDEA /* StackMachineError.swift in Sources */,
 				4E0E7FF51F257E100026FDEA /* StackMachineStandardIO.swift in Sources */,
 				4E0E7FEF1F2512180026FDEA /* StackMachineInterpreter.swift in Sources */,
