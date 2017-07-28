@@ -70,7 +70,7 @@ open class StackMachineInterpreter
     /// ( i*x s -- j*x )
     public func interpretInputBuffer() throws {
         while inputIndex != inputBuffer.endIndex {
-            if let token = try readWord() {
+            if let token = try readDelimitedWord() {
                 if let n = toInt(token) {
                     try sm.push(.int(n))
                 }
@@ -114,7 +114,7 @@ open class StackMachineInterpreter
     /// Read the next word from the input buffer.
     ///
     /// - parameter delimiter: Delimiting character
-    public func readWord(delimiter: UInt8 = Ascii.space) throws -> String? {
+    public func readDelimitedWord(delimiter: UInt8 = Ascii.space) throws -> String? {
         let limit = inputBuffer.endIndex
 
         // Skip initial delimiter characters.
@@ -132,7 +132,12 @@ open class StackMachineInterpreter
             end = inputBuffer.index(after: end)
         }
 
-        inputIndex = end
+        if end != limit {
+            inputIndex = inputBuffer.index(after: end)
+        }
+        else {
+            inputIndex = end
+        }
 
         let word = String(inputBuffer[begin..<end])
         return word
@@ -184,10 +189,12 @@ open class StackMachineInterpreter
         definePrimitive("cr",       cr)
         definePrimitive("bl",       bl)
         definePrimitive("find",     find)
-        definePrimitive("execute",  execute)
         definePrimitive("evaluate", evaluate)
+        definePrimitive("execute",  execute)
         definePrimitive("quit",     quit)
         definePrimitive("bye",      bye)
+        definePrimitive("s\"",      sQuote)
+        definePrimitive("type",     type)
     }
 
     // MARK:- Primitives
@@ -313,5 +320,27 @@ open class StackMachineInterpreter
     /// Return control to the operating system.
     public func bye() throws {
         throw StackMachineError.bye
+    }
+
+    /// Parse characters delimited by "
+    ///
+    /// ( "ccc<quote>" -- s )
+    public func sQuote() throws {
+        if let s = try readDelimitedWord(delimiter: Ascii.dquote) {
+            try sm.push(.string(s))
+        }
+        else {
+            throw StackMachineError.stringRequired("s\"")
+        }
+    }
+
+    public func type() throws {
+        let x = try sm.pop()
+        switch x {
+        case .string(let s):
+            try io?.write(s)
+        default:
+            throw StackMachineError.stringRequired("type")
+        }
     }
 }

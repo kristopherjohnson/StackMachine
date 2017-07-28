@@ -10,15 +10,16 @@ import Foundation
 
 /// ASCII codes.
 public enum Ascii {
-    public static let tab   : UInt8 = 0x09
-    public static let lf    : UInt8 = 0x0a
-    public static let vt    : UInt8 = 0x0b
-    public static let ff    : UInt8 = 0x0c
-    public static let cr    : UInt8 = 0x0d
-    public static let space : UInt8 = 0x20
-    public static let minus : UInt8 = 0x2d
-    public static let ch0   : UInt8 = 0x30
-    public static let ch9   : UInt8 = 0x39
+    public static let tab    : UInt8 = 0x09
+    public static let lf     : UInt8 = 0x0a
+    public static let vt     : UInt8 = 0x0b
+    public static let ff     : UInt8 = 0x0c
+    public static let cr     : UInt8 = 0x0d
+    public static let space  : UInt8 = 0x20
+    public static let dquote : UInt8 = 0x022
+    public static let minus  : UInt8 = 0x2d
+    public static let ch0    : UInt8 = 0x30
+    public static let ch9    : UInt8 = 0x39
 }
 
 /// - returns: true if character is a printable ASCII character.

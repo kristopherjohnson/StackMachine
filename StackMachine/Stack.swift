@@ -19,7 +19,12 @@ public class Stack {
     ///
     /// Elements are ordered from bottom to top.
     public var elements: Array<StackCell> {
-        return Array(cells[0...topIndex])
+        if topIndex >= 0 {
+            return Array(cells[0...topIndex])
+        }
+        else {
+            return Array()
+        }
     }
 
     /// Initializer
